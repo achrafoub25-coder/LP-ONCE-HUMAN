@@ -1,26 +1,48 @@
-export function GET(request) {
-  const country =
-    request.headers.get('x-vercel-ip-country') ||
-    request.headers.get('X-Vercel-IP-Country') ||
-    'US';
+export const config = { runtime: 'edge' };
 
-  const region =
-    request.headers.get('x-vercel-ip-country-region') ||
-    request.headers.get('X-Vercel-IP-Country-Region') ||
-    '';
+const GEO_MAP = {
+  FR: 'fr',
+  DE: 'de',
+  AT: 'de',
+  GB: 'en',
+  UK: 'en',
+  AU: 'en',
+  NL: 'en',
+  NO: 'en',
+  NZ: 'en',
+  CA: 'en',
+  US: 'en',
+};
 
-  const city =
-    request.headers.get('x-vercel-ip-city') ||
-    request.headers.get('X-Vercel-IP-City') ||
-    '';
+export default function handler(req) {
+  const country = (req.headers.get('x-vercel-ip-country') || '').toUpperCase();
+  const region = req.headers.get('x-vercel-ip-country-region') || '';
+  const city = req.headers.get('x-vercel-ip-city') || '';
+  const acceptLang = (req.headers.get('accept-language') || 'en').toLowerCase();
+
+  let locale = 'en';
+
+  if (country === 'CH') {
+    if (acceptLang.startsWith('fr')) locale = 'fr';
+    else if (acceptLang.startsWith('de')) locale = 'de';
+    else locale = 'en';
+  } else if (GEO_MAP[country] !== undefined) {
+    locale = GEO_MAP[country];
+  } else if (country) {
+    if (acceptLang.startsWith('fr')) locale = 'fr';
+    else if (acceptLang.startsWith('de')) locale = 'de';
+    else locale = 'en';
+  }
 
   return new Response(
-    JSON.stringify({ country, region, city }),
+    JSON.stringify({ locale, country, region, city }),
     {
+      status: 200,
       headers: {
-        'content-type': 'application/json; charset=utf-8',
-        'cache-control': 'no-store'
-      }
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store',
+        'Access-Control-Allow-Origin': '*',
+      },
     }
   );
 }
