@@ -9,15 +9,7 @@
 <meta property="og:description" content="Loot. Build. Survive the contamination. Free to play on Windows PC.">
 <meta property="og:image" content="https://res.cloudinary.com/dnemfgakp/image/upload/v1773426685/img_peblut.jpg">
 <meta property="og:type" content="website">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JHDY7G8P4W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-JHDY7G8P4W');
-</script>
 <!-- ============================================================
      FONTS
      ============================================================ -->
@@ -263,7 +255,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
    ============================================================ */
 #hero{
   position:relative;width:100%;height:100vh;min-height:680px;
-  display:flex;align-items:flex-end;overflow:hidden;z-index:2;
+  display:flex;align-items:center;overflow:hidden;z-index:2;
 }
 .hero-vid{position:absolute;inset:0;z-index:0}
 .hero-vid video{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.65)}
@@ -304,7 +296,7 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 
 /* hero content */
-.hero-body{position:relative;z-index:10;padding:300px 84px 112px;max-width:860px}
+.hero-body{position:relative;z-index:10;padding:100px 84px 48px;max-width:860px}
 
 .hero-badge{
   font-family:var(--ff-mono);font-size:11px;letter-spacing:.28em;
@@ -316,12 +308,12 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 
 .hero-h1{
   font-family:var(--ff-hero);
-  font-size:clamp(62px,7.9vw,116px);
+  font-size:clamp(68px,8.5vw,128px);
   line-height:.9;letter-spacing:.02em;text-transform:uppercase;
   color:var(--cold);margin-bottom:22px;
 }
 .hero-h1 .l2{color:var(--toxic);text-shadow:var(--glow-g);display:block}
-.hero-h1 .l3{font-size:clamp(40px,5vw,74px);display:block;opacity:.85}
+.hero-h1 .l3{font-size:clamp(44px,5.5vw,82px);display:block;opacity:.85}
 
 .hero-sub{
   font-size:19px;line-height:1.65;color:rgba(200,212,220,.95);
@@ -329,15 +321,6 @@ button{cursor:pointer;border:none;background:none;font-family:inherit}
 }
 
 .hero-ctas{display:flex;align-items:center;gap:20px;margin-bottom:32px;flex-wrap:wrap}
-
-html[data-locale="en"] .hero-body{padding-top:288px}
-html[data-locale="fr"] .hero-body,
-html[data-locale="de"] .hero-body{padding-top:292px}
-html[data-locale="fr"] .hero-h1,
-html[data-locale="de"] .hero-h1{font-size:clamp(58px,7.2vw,108px)}
-html[data-locale="fr"] .hero-h1 .l3,
-html[data-locale="de"] .hero-h1 .l3{font-size:clamp(37px,4.6vw,68px)}
-html[data-locale="en"] .hero-ctas{flex-direction:column;align-items:flex-start;gap:18px}
 
 /* trust row */
 .trust-row{
@@ -1390,7 +1373,7 @@ const L = {
   en:{
     hdrBadge:'🔓 Free to Play — Windows PC',
     hdrCtaTxt:'Get It Free',
-    heroBadge:'FREE OPEN-WORLD SURVIVAL — WINDOWS PC',
+    heroBadge:'Free Open-World Survival — No Download Fee',
     hl1:'BUILD. LOOT.',hl2:'SURVIVE.',hl3:'THE CONTAMINATION.',
     heroSub:'<strong>Free to play</strong> on <strong>Windows PC</strong>. Explore a contaminated open world, loot, craft, <strong>build your base</strong> and fight mutated creatures — <strong>solo or with your squad</strong>. No purchase needed.',
     heroCtaTxt:'Play Now — It\'s Free',
@@ -1481,9 +1464,9 @@ const L = {
   fr:{
     hdrBadge:'🔓 Gratuit — Windows PC',
     hdrCtaTxt:'Jouer gratuitement',
-    heroBadge:'SURVIE EN MONDE OUVERT — 100% GRATUIT',
-    hl1:'CONSTRUIS. PILLE.',hl2:'SURVIS.',hl3:'EN ZONE CONTAMINÉE.',
-    heroSub:'<strong>Gratuit</strong> sur <strong>Windows PC</strong>. Explore un monde ouvert contaminé, pille, fabrique, <strong>bâtis ta base</strong> et affronte des créatures mutées — <strong>en solo ou en équipe</strong>. Aucun achat requis.',
+    heroBadge:'Survie en monde ouvert — 100% gratuit',
+    hl1:'CONSTRUIS. LOOT.',hl2:'SURVIS.',hl3:'À LA CONTAMINATION.',
+    heroSub:'<strong>Gratuit</strong> sur <strong>Windows PC</strong>. Explore un monde ouvert contaminé, loot, fabrique, <strong>bâtis ta base</strong> et affronte des créatures mutées — <strong>en solo ou en équipe</strong>. Aucun achat requis.',
     heroCtaTxt:'Jouer maintenant — C\'est gratuit',
     watchTxt:'Voir en action',
     trust:['Gratuit','Windows PC','Solo ou en équipe','PvE prioritaire','Modes PvP'],
@@ -1572,9 +1555,9 @@ const L = {
   de:{
     hdrBadge:'🔓 Kostenlos — Windows PC',
     hdrCtaTxt:'Kostenlos spielen',
-    heroBadge:'OPEN-WORLD-SURVIVAL — KOSTENLOS AUF WINDOWS PC',
-    hl1:'BAUEN. PLÜNDERN.',hl2:'ÜBERLEBEN.',hl3:'IN DER VERSEUCHUNG.',
-    heroSub:'<strong>Kostenlos</strong> auf <strong>Windows PC</strong>. Erkunde eine verseuchte offene Welt, plündere, stelle Ausrüstung her, <strong>baue deine Basis</strong> und kämpfe gegen mutierte Kreaturen — <strong>allein oder im Squad</strong>. Kein Kauf nötig.',
+    heroBadge:'Open-World-Survival — Kostenlos & ohne Abo',
+    hl1:'BAUEN. PLÜNDERN.',hl2:'ÜBERLEBEN.',hl3:'DIE VERSEUCHUNG.',
+    heroSub:'<strong>Kostenlos</strong> auf <strong>Windows PC</strong>. Erkunde eine verseuchte offene Welt, loote, stelle Ausrüstung her, <strong>baue deine Basis</strong> und kämpfe gegen mutierte Kreaturen — <strong>allein oder im Squad</strong>. Kein Kauf nötig.',
     heroCtaTxt:'Jetzt spielen — Kostenlos',
     watchTxt:'In Aktion sehen',
     trust:['Kostenlos spielbar','Windows PC','Solo oder Squad','Fokus auf PvE','PvP-Modi'],
@@ -1670,7 +1653,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const loc     = geoData.locale;
   const country = geoData.country || '';
   const T       = L[loc] || L.en;
-  document.documentElement.setAttribute('data-locale', loc);
 
   // fire GA
   track('page_view',       { locale: loc, country });
@@ -1963,3 +1945,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 </script>
 </body>
 </html>
+
